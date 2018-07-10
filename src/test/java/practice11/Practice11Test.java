@@ -1,23 +1,23 @@
-//package practice11;
-//
-//import org.junit.Before;
-//import org.junit.Test;
-//
-//import java.io.ByteArrayOutputStream;
-//import java.io.PrintStream;
-//import java.util.LinkedList;
-//
-//import static org.fest.assertions.api.Assertions.assertThat;
-//
-//public class Practice11Test {
-//    private Klass klass2;
-//    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//
-//    @Before
-//    public void setup() {
-//        klass2 = new Klass(2);
-//        System.setOut(new PrintStream(outContent));
-//    }
+package practice11;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.LinkedList;
+
+import static org.fest.assertions.api.Assertions.assertThat;
+
+public class Practice11Test {
+    private Klass klass2;
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setup() {
+        klass2 = new Klass(2);
+        System.setOut(new PrintStream(outContent));
+    }
 //
 //    @Test
 //    public void should_person_have_id_name_and_age() throws Exception {
@@ -59,10 +59,10 @@
 //        assertThat(systemOut()).isEqualTo("It is not one of us.\n");
 //        assertThat(klass2.getLeader()).isNotEqualTo(jerry);
 //    }
-//
-//    private String systemOut() {
-//        return outContent.toString();
-//    }
+
+    private String systemOut() {
+        return outContent.toString();
+    }
 //
 //    @Test
 //    public void should_class_assign_a_member_student_as_leader() throws Exception {
@@ -161,29 +161,31 @@
 //        Student jerry = new Student(1, "Jerry", 8, new Klass(2));
 //        assertThat(tom.introduceWith(jerry)).isEqualTo("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.");
 //    }
-//
-//    @Test
-//    public void should_teacher_be_notified_when_student_join_any_classes_it_teaches() throws Exception {
-//        LinkedList<practice11.Klass> linkedList = new LinkedList<Klass>();
-//        linkedList.add(klass2);
-//        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
-//        Student jerry = new Student(1, "Jerry", 8, new Klass(3));
-//
-//        klass2.appendMember(jerry);
-//
-//        assertThat(systemOut().endsWith("I am Tom. I know Jerry has joined Class 2.\n")).isTrue();
-//    }
-//
-//    @Test
-//    public void should_teacher_be_notified_when_any_class_it_teaches_assigned_a_leader() throws Exception {
-//        LinkedList<practice11.Klass> linkedList = new LinkedList<Klass>();
-//        linkedList.add(klass2);
-//        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
-//        Student jerry = new Student(1, "Jerry", 8, new Klass(3));
-//
-//        klass2.appendMember(jerry);
-//        klass2.assignLeader(jerry);
-//
-//        assertThat(systemOut().endsWith("I am Tom. I know Jerry become Leader of Class 2.\n")).isTrue();
-//    }
-//}
+
+    @Test
+    public void should_teacher_be_notified_when_student_join_any_classes_it_teaches() throws Exception {
+        LinkedList<practice11.Klass> linkedList = new LinkedList<Klass>();
+        linkedList.add(klass2);
+        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
+        Student jerry = new Student(1, "Jerry", 8, new Klass(3));
+
+        klass2.appendMember(jerry);
+
+        assertThat(systemOut()).isEqualTo("I am Tom. I know Jerry has joined Class 2.\n");
+        assertThat(systemOut().endsWith("I am Tom. I know Jerry has joined Class 2.\n")).isTrue();
+
+    }
+
+    @Test
+    public void should_teacher_be_notified_when_any_class_it_teaches_assigned_a_leader() throws Exception {
+        LinkedList<practice11.Klass> linkedList = new LinkedList<Klass>();
+        linkedList.add(klass2);
+        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
+        Student jerry = new Student(1, "Jerry", 8, new Klass(3));
+
+        klass2.appendMember(jerry);
+        klass2.assignLeader(jerry);
+
+        assertThat(systemOut().endsWith("I am Tom. I know Jerry become Leader of Class 2.\n")).isTrue();
+    }
+}
