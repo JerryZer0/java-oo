@@ -172,7 +172,6 @@ public class Practice11Test {
         klass2.appendMember(jerry);
 
         assertThat(systemOut()).isEqualTo("I am Tom. I know Jerry has joined Class 2.\n");
-        assertThat(systemOut().endsWith("I am Tom. I know Jerry has joined Class 2.\n")).isTrue();
 
     }
 
