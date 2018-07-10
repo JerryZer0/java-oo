@@ -6,9 +6,9 @@ public class Person {
 
     Person(){}
 
-    Person(String n, int a){
-        name = n;
-        age = a;
+    Person(String name, int age){
+        this.name = name;
+        this.age = age;
     }
 
     public String getName(){

@@ -17,7 +17,6 @@ public class Student extends Person{
     public int getAge(){
         return this.age;
     }
-
     public int getKlass() {
         return klass;
     }
